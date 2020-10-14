@@ -1,23 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
 
-        <title>Course Evaluation</title>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CourseEval For UNC</title>
+    <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <!-- Bulma Version 0.9.0-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/landing.css">
+</head>
 
-        <!-- Include links to CSS stylesheets below -->
-        <!-- TODO (optional): Add link to bulma here -->
-        <link rel="stylesheet" href="node_modules/bulma/css/bulma.css"></link>
-    </head>
+<body>
+    <section class="hero is-info is-fullheight">
+        <div class="hero-head">
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="../">
+                            <!--img src="http://bulma.io/images/bulma-type-white.png" alt="Logo"-->
+                        </a>
+                        <span class="navbar-burger burger" data-target="navbarMenu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </div>
+                    <div id="navbarMenu" class="navbar-menu">
+                        <div class="navbar-end">
+                            <span class="navbar-item">
+                                <a class="button is-white is-outlined" href="#">
+                                    <span class="icon">
+                                        <i class="fa fa-home"></i>
+                                    </span>
+                                    <span>Home</span>
+                                </a>
+                            </span>
+                            <span class="navbar-item">
+                                <a class="button is-white is-outlined" href="#">
+                                    <span class="icon">
+                                        <i class="fa fa-superpowers"></i>
+                                    </span>
+                                    <span>Login</span>
+                                </a>
+                            </span>
+                            <span class="navbar-item">
+                                <a class="button is-white is-outlined" href="#">
+                                    <span class="icon">
+                                        <i class="fa fa-book"></i>
+                                    </span>
+                                    <span>Sign Up</span>
+                                </a>
+                            </span>
+                            <span class="navbar-item">
+                                <a class="button is-white is-outlined">
+                                    <span class="icon">
+                                        <i class="fa fa-github"></i>
+                                    </span>
+                                    <span>Contact Us</span>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            </div>
 
-    <body>
-        <div id="root"></div>
+            <div class="hero-body" style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/2008-07-11_UNC-CH_Wilson_Library_3.jpg/1200px-2008-07-11_UNC-CH_Wilson_Library_3.jpg); background-repeat: no-repeat; background-attachment: fixed;  
+            background-size: cover;">
+                <div class="container has-text-centered">
+                    <div class="column is-6 is-offset-3">
+                        <h1 class="title">
+                            Course Evaluation for UNC
+                        </h1>
+                        <h2 class="subtitle">
+                            Find everything you want to know about a class here.
+                        </h2>
+                        <div class="box">
+                            <div class="field is-grouped">
+                                <p class="control is-expanded">
+                                    <input class="input" type="text" placeholder="Search a class here">
+                                </p>
+                                <p class="control">
+                                    <a class="button is-info" href="./cardPage.html">
+                                        Search
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <!-- Include links to JavaScript files below -->
-        <!-- TODO: Add link to jQuery here -->
-        <script src="node_modules/jquery/dist/jquery.js"></script>
-        <script src="courseData.js"></script>
-        <script src="render.js" type="module"></script>
-    </body>
+    </section>
+    <script async type="text/javascript" src="../js/bulma.js"></script>
+
+    <div class="w3-row-padding w3-center w3-margin-top">
+        <div class="w3-third">
+          <div class="w3-card w3-container" style="min-height:260px">
+          <h3 class = "button is-info subtitle" style="font-size:20px">Find A Class</h3><br>
+          <i class="fa fa-desktop w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
+          <!-- <p>Built-in responsiveness</p>
+          <p>Mobile first fluid grid</p>
+          <p>Fits any screen sizes</p>
+          <p>PC Tablet and Mobile</p> -->
+          </div>
+        </div>
+        
+        <div class="w3-third">
+          <div class="w3-card w3-container" style="min-height:260px">
+          <h3 class = "button is-info subtitle" style="font-size:20px">Evaluate A Class</h3><br>
+          <i class="fa fa-css3 w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
+          <!-- <p>Standard CSS only</p>
+          <p>Easy to learn</p>
+          <p>No need for jQuery</p>
+          <p>No JavaScript library</p> -->
+          </div>
+        </div>
+        
+        <div class="w3-third">
+          <div class="w3-card w3-container" style="height:260px">
+          <h3 class = "button is-info subtitle" style="font-size:20px">What's More...</h3><br>
+          <i class="fa fa-diamond w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
+          <!-- <p>Paper like design</p>
+          <p>Bold colors and shadows</p>
+          <p>Equal across platforms</p>
+          <p>Equal across devices</p> -->
+          </div>
+        </div>
+    </div>
+    <!-- Footer -->
+<footer class="w3-container w3-padding-16">
+    <h3>Footer</h3>
+    <p>About/Help/Contact</p>
+    <div style="position:relative;bottom:55px;" class="w3-tooltip w3-right">
+      <span class="w3-text w3-theme-light w3-padding">Go To Top</span>    
+      <a class="w3-text-white" href="#myHeader"><span class="w3-xlarge">
+      <i class="fa fa-chevron-circle-up"></i></span></a>
+    </div>
+    <p>Say something here...</p>
+  </footer>
+</body>
+
 </html>
