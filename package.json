@@ -15,7 +15,8 @@
     "bulma": "^0.9.1",
     "data-store": "^4.0.3",
     "express": "^4.17.1",
-    "jquery": "^3.5.1"
+    "jquery": "^3.5.1",
+    "require": "^2.4.20"
   },
   "repository": {
     "type": "git",

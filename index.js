@@ -1,4 +1,4 @@
-import { createRequire } from 'module';
+
 
 const express = require('express');
 
@@ -16,6 +16,7 @@ app.get('/courseData', (req, res) => {
 
 app.get('/courseData/:id', (req, res) => {
     let b = courseData.findByID(req.params.id);
+    console.log(req.params.id);
     if (b == null) {
         res.status(404).send("Course not found");
         return;
