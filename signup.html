@@ -2,12 +2,9 @@
 <html lang="en">
 
 <head>
-    <title>Login Page</title>
+    <title>Signup Page</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-    
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
-
-
 
 </head>
 
@@ -25,6 +22,7 @@
                             <div class="navbar-end">
                             <span class="navbar-item">
 
+                            </a>
                             </span>
                             </div>
                         </div>
@@ -35,14 +33,15 @@
     <div class="hero-body">
                 <div class="container has-text-centered">
                     <div class="column is-4 is-offset-4">
-                            <h2>Login</h2>
+                            <h2>Sign up</h2>
                         <div class="box">
                             <form>
-                                
+
+                                    
                                     <div class="field">
                                         <label class="label">Username</label>
                                         <div class="control has-icons-left">
-                                            <input class="input" type="text" placeholder="Username" id="l-user">
+                                            <input class="input" type="text" placeholder="Username" id="s-user">
                                             <span class="icon is-small is-left">
                                                     <i class="fas fa-user"></i>
                                             </span>
@@ -52,33 +51,32 @@
                                     <div class="field">
                                         <label class="label">Password</label>
                                         <div class="control has-icons-left">
-                                            <input class="input" type="password" placeholder="Password" id="l-pass">
+                                            <input class="input" type="password" placeholder="Password" id="s-pass">
                                             <span class="icon is-small is-left">
                                                 <i class="fas fa-key"></i>
                                             </span>
                                         </div>
                                     </div>
                                     
-                                    <button class="is-gradient button is-rounded" id="login" >
-                                       Login            
+                                    <button class="is-gradient button is-rounded" type="submit" id="signup" >
+                                         Sign up
                                     </button>
                                     
-                            </form>
+                                    
+                                </form>
                                 <br>
-                            <p>Don't have an account? <a href="./signup.html">Sign up</a></p>
-                                                    
-                            <br>
-                            <div id="loginFeedback"></div>
+                            <p>Already have an account? <a href="./index.html">Login</a></p>
                     </div>
                 </div>
     </div>
-
     
 
     </section>
 
+
+    <!--Scripts-->
     <script src="https://kit.fontawesome.com/05343d1d5e.js" crossorigin="anonymous"></script>
     <script type="module" src="login.js"></script>
-
-
+    
     </body>
+</html>
