@@ -1,3 +1,5 @@
+
+
 function getAllCard() {
   const root = document.getElementById('root');
   const back = document.getElementById('back');
@@ -34,7 +36,7 @@ function renderCourseCard (id) {
           </div>`
 };
 
-function renderCoursePage (id) {
+async function renderCoursePage (id) {
   const root = document.getElementById('root');
   const back = document.getElementById('back');
 
@@ -53,4 +55,32 @@ function renderCoursePage (id) {
                         </h2>
                       </div>
                     </div>`
+  const result = await axios({
+      method: 'get',
+      url: 'http://localhost:3010/post'
+  })
+  result.data.forEach(element => {
+    let comments = getComments(element);
+    root.insertAdjacentHTML('afterend', comments);
+  });
+}
+
+function getComments(element) {
+  return `<article class="media">
+            <figure class="media-left">
+                <p class="image is-64x64">
+                    <img src="chancellor.jpg">
+                </p>
+            </figure>
+            <div class="media-content">
+                <div class="content">
+                    <p>
+                    <strong>${element.author}</strong> 
+                    <br>
+                    <span>${element.body}</span>
+                    </p>
+                </div>
+
+            </div>
+          </article>`
 }
