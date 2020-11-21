@@ -5,7 +5,7 @@ const Post = require('./model/Posts')
 
 router.get('/', async (req, res) => {
     try{
-        const posts = await Post.find();
+        const posts = await Post.find().sort({_id: -1}).limit(25);
         res.json(posts);
     }catch(err){
         res.json({message: err})

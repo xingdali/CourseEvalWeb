@@ -39,7 +39,6 @@ function renderCourseCard (id) {
 async function renderCoursePage (id) {
   const root = document.getElementById('root');
   const back = document.getElementById('back');
-
   const course = courseData[id];
   let courseTitle = course.subject + " " + course.courseNum;
   back.innerHTML = `<a class="button is-white is-outlined" onclick=getAllCard()>
@@ -54,14 +53,32 @@ async function renderCoursePage (id) {
                           ${courseTitle}
                         </h2>
                       </div>
-                    </div>`
+                    </div>
+                    <div id="card">
+                      <button class="button is-info" onclick=generateTextCard(${id})>Share your comment!</button>
+                    </div>
+                    <section class="container">
+                      <div class="container" id="comment-list"></div>
+                    </section>`
+  await renderComments(id);
+  
+}
+
+async function renderComments(id) {
+  const course = courseData[id];
   const result = await axios({
-      method: 'get',
-      url: 'http://localhost:3010/post'
+    method: 'get',
+    url: 'http://localhost:3010/post'
   })
-  result.data.forEach(element => {
+  const list = document.getElementById('comment-list');
+  const comment_list = result.data.filter(element => (element.subject == course.subject && element.courseNum == filterInt(course.courseNum)));
+  if (comment_list.length == 0) {
+    list.innerHTML = '<p>No comments yet, share your experience!<p>';
+    return;
+  }
+  comment_list.forEach(element => {
     let comments = getComments(element);
-    root.insertAdjacentHTML('afterend', comments);
+    list.insertAdjacentHTML('beforeend', comments);
   });
 }
 
@@ -83,4 +100,59 @@ function getComments(element) {
 
             </div>
           </article>`
+}
+
+async function postComment(id) {
+    const text = document.getElementById('post');
+    const postBox = document.getElementById('post-box');
+    const cardPosition = document.getElementById('card');
+    const course = courseData[id];
+    const result = await axios({
+        method: 'post',
+        url: 'http://localhost:3010/post',
+        data: {
+          subject: course.subject,
+          courseNum: course.courseNum,
+          body: text.value
+        }
+      });
+      if (result.status == 200) {
+        const root = document.getElementById('comment-list');
+        root.remove();
+        renderCoursePage(id);
+    }
+} 
+
+let generateTextCard = function(id) {
+  const cardPosition = document.getElementById('card');
+  const card = `<article class="media" id="post-box">
+              <figure class="media-left">
+              <p class="image is-64x64">
+                  <img src="chancellor.jpg">
+              </p>
+              </figure>
+              <div class="media-content">
+              <div class="field">
+                  <p class="control">
+                  <textarea class="textarea" id="post" placeholder="Share your experience:)"></textarea>
+                  </p>
+              </div>
+              <nav class="level">
+                  <div class="level-left">
+                  <div class="level-item">
+                      <button class="button is-info" onclick=postComment(${id})>Share</button>
+                  </div>
+                  </div>
+              </nav>
+              </div>
+          </article>`;
+  cardPosition.innerHTML = card
+} 
+
+function filterInt(value) {
+  if (/^[-+]?(\d+|Infinity)$/.test(value)) {
+    return Number(value)
+  } else {
+    return NaN
+  }
 }
