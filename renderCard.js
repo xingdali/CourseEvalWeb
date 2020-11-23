@@ -1,16 +1,65 @@
-
-
 function getAllCard() {
   const root = document.getElementById('root');
   const back = document.getElementById('back');
   back.innerHTML = ''
   root.innerHTML = ''
-  for (let i = 0; i <= 9007; i++) {
+  var length = Object.values(courseData).length;
+  for (let i = 0; i < length; i++) {
     if (courseData[i].subject == undefined) {
       continue;
     } 
     root.insertAdjacentHTML('beforeend', renderCourseCard(i));
   }
+
+}
+
+function init() {
+  getAllCard();
+  // bind search event
+  document.getElementById('search').addEventListener('click', beginSearch);
+  //
+  var key = getParameterByName('key');
+  if(key) {
+    document.getElementById('searchInput').value = key;
+    beginSearch();
+  }
+}
+
+function beginSearch() {
+  var searchKey = document.getElementById('searchInput').value.trim();
+  for(var id in courseData) {
+    var course = courseData[id];
+    if(
+        searchMatch(searchKey, course.subject) ||
+        searchMatch(searchKey, [course.subject,course.courseNum].join(' ')) ||
+        searchMatch(searchKey, [course.subject,course.courseNum].join('')) ||
+        searchKey === course.courseNum){
+      renderCoursePage(id);
+      return ;
+    }
+  }
+  alert('没有找到');
+}
+
+function getParameterByName(name, url = window.location.href) {
+  name = name.replace(/[\[\]]/g, '\\$&');
+  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+      results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+function searchMatch(key, content) {
+  if(!key || !content) {
+    return false;
+  }
+  key = key.toLowerCase().trim().split(' ').map(function (a) {return a}).join(' ');
+  content = content.toLowerCase().trim().split(' ').map(function (a) {return a}).join(' ');
+  if(content.indexOf(key)!==-1) {
+    return true;
+  }
+  return false;
 }
 
 
@@ -35,6 +84,7 @@ function renderCourseCard (id) {
               </div>
           </div>`
 };
+
 
 async function renderCoursePage (id) {
   const root = document.getElementById('root');
