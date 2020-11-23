@@ -20,6 +20,7 @@ $(document).ready(function(){
 async function handleSignup(user,password){
     console.log(user);
     console.log(password);
+    console.log(document.cookie);
     try {
         const makeUser = await axios({            
             method: 'post',
@@ -31,7 +32,7 @@ async function handleSignup(user,password){
             }
         });
         if (makeUser.status == 200) {
-            alert("success");
+            alert("success, please login:)");
         }
     } catch (err) {
         alert("account already exist, change a new one")
@@ -52,7 +53,9 @@ async function handleLogin(user,pass){
         }
         if (loginUser.status == 200) {
             if (loginUser.data.pass == pass) {
+                document.cookie = user;
                 alert("login success");
+                window.location.href = "./index.html"
                 return;
             } else {
                 alert("no username exists or incorrect password, please check again");

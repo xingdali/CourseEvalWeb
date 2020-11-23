@@ -55,11 +55,15 @@ async function renderCoursePage (id) {
                       </div>
                     </div>
                     <div id="card">
-                      <button class="button is-info" onclick=generateTextCard(${id})>Share your comment!</button>
                     </div>
                     <section class="container">
                       <div class="container" id="comment-list"></div>
                     </section>`
+  if (document.cookie) {
+    const mybutton = `<button class="button is-info" onclick=generateTextCard(${id})>Share your comment!</button>`
+    const card = document.getElementById('card');
+    card.innerHTML = mybutton;
+  }
   await renderComments(id);
   
 }
@@ -92,7 +96,7 @@ function getComments(element) {
             <div class="media-content">
                 <div class="content">
                     <p>
-                    <strong>${element.author}</strong> 
+                    <strong>Nobody</strong> 
                     <br>
                     <span>${element.body}</span>
                     </p>

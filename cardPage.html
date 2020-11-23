@@ -65,16 +65,16 @@
                                         <span>Catalog</span>
                                     </a>
                                 </span>
-                                <span class="navbar-item">
-                                    <a class="button is-white is-outlined" href="#">
+                                <span class="navbar-item" id="login-span">
+                                    <a class="button is-white is-outlined" href="./login.html">
                                         <span class="icon">
                                             <i class="fa fa-superpowers"></i>
                                         </span>
                                         <span>Login</span>
                                     </a>
                                 </span>
-                                <span class="navbar-item">
-                                    <a class="button is-white is-outlined" href="#">
+                                <span class="navbar-item" id="signup-span">
+                                    <a class="button is-white is-outlined" href="./signup.html">
                                         <span class="icon">
                                             <i class="fa fa-book"></i>
                                         </span>
@@ -82,7 +82,7 @@
                                     </a>
                                 </span>
                                 <span class="navbar-item">
-                                    <a class="button is-white is-outlined">
+                                    <a class="button is-white is-outlined" href="https://cs.unc.edu/">
                                         <span class="icon">
                                             <i class="fa fa-github"></i>
                                         </span>
@@ -103,6 +103,13 @@
             
 
         </section>
-        
+        <script>
+            if (document.cookie) {
+            const login = document.getElementById('login-span');
+            login.remove();
+            const signup = document.getElementById('signup-span');
+            signup.remove();
+            }
+        </script>
     </body>
 </html>
