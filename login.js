@@ -53,7 +53,7 @@ async function handleLogin(user,pass){
         }
         if (loginUser.status == 200) {
             if (loginUser.data.pass == pass) {
-                document.cookie = user;
+                document.cookie = 'user='+user;
                 alert("login success");
                 window.location.href = "./index.html"
                 return;

@@ -112,8 +112,21 @@
     </section>
 
 
-    <script>   
-        if (document.cookie) {
+    <script>
+        var cookie = document.cookie;
+        var arrcookie = cookie.split(';');
+        var isLogin = false;
+        var key='';
+        for (var i = 0; i < arrcookie.length; i++) {
+            key = arrcookie[i].split('=');
+            console.log(key[0]);
+            if (key[0] == ' user') {
+                isLogin = true;
+                break;
+            }
+        }
+        console.log(document.cookie);
+        if (isLogin) {
             const login = document.getElementById('login-span');
             login.remove();
             const signup = document.getElementById('signup-span');
@@ -129,7 +142,6 @@
              if(courseData[i].subject !=undefined){
                  courseSearch[i] = courseData[i].subject.toString() + courseData[i].courseNum.toString();
              }
-             console.log(courseSearch[i]);
          }
         autocomplete(document.getElementById("input"), courseSearch);
         document.getElementById('search').addEventListener('click', function () {
