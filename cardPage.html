@@ -22,7 +22,7 @@
         <script src="renderCard.js"></script>
     </head>
 
-    <body onload="getAllCard()">
+    <body onload="init()">
         <section class="hero is-info">
             <div class="hero-head">
                 <nav class="navbar">
@@ -41,9 +41,9 @@
                                 <p class="control" id="back">
                                     
                                 </p>
-                                <input class="input" type="text" placeholder="Search a class here">
+                                <input class="input" type="text" id="searchInput" placeholder="Search a class here">
                                 <p class="control">
-                                    <a class="button is-white is-outlined">
+                                    <a class="button is-white is-outlined" href="javascript:void(0);" id="search">
                                         Search
                                     </a>
                                 </p>
