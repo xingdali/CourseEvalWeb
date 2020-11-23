@@ -46,19 +46,19 @@
                                 </a>
                             </span>
                             <span class="navbar-item">
-                                <a class="button is-white is-outlined" href="#">
+                                <a class="button is-white is-outlined" href="./login.html">
                                     <span class="icon">
                                         <i class="fa fa-superpowers"></i>
                                     </span>
-                                    <span> <a href="./login.html">Login</a></span>
+                                    <span>Login</span>
                                 </a>
                             </span>
                             <span class="navbar-item">
-                                <a class="button is-white is-outlined" href="#">
+                                <a class="button is-white is-outlined" href="./signup.html">
                                     <span class="icon">
                                         <i class="fa fa-book"></i>
                                     </span>
-                                    <span> <a href="./signup.html">Sign up</a></span>
+                                    <span>Sign Up</span>
                                 </a>
                             </span>
                             <span class="navbar-item">
@@ -138,13 +138,18 @@
         </div>
     </div>
     <script>   
-        test("script is added");
-        var courseSearch;
-        for (let i = 0; i <= 9007; i++) {
-            if(courseData[i].subject !=undefined){
-                courseSearch[i] = courseData[i].subject + " "+ courseData[i].courseNum;
-            }
-        }
+        //test("script is added");
+         var courseSearch = [];
+        // console.log(courseData[1].subject + courseData[1].courseNum);
+        // courseSearch[0] = courseData[1].subject + courseData[1].courseNum;
+        // console.log(courseSearch[0]);
+        
+         for (let i = 0; i <= 9007; i++) {
+             if(courseData[i].subject !=undefined){
+                 courseSearch[i] = courseData[i].subject.toString() + courseData[i].courseNum.toString();
+             }
+             console.log(courseSearch[i]);
+         }
         autocomplete(document.getElementById("input"), courseSearch);
         
     </script>

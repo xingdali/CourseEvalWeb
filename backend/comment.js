@@ -8,7 +8,9 @@ require('dotenv/config');
 app.use(bodyParser.json());
 app.use(cors());
 const postRoute = require('./posts');
+const accountRoute = require('./accounts')
 app.use('/post', postRoute);
+app.use('/account', accountRoute)
 
 
 mongoose.connect(

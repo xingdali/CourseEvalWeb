@@ -17,25 +17,47 @@ $(document).ready(function(){
 });
 
 
-async function handleSignup(user,pass){
-    const makeUser = await $.ajax({
-        method: 'post',
-        url: 'http://localhost:3000/account/create',
-        "data":{
-            "name": user,
-            "pass": pass,
+async function handleSignup(user,password){
+    console.log(user);
+    console.log(password);
+    try {
+        const makeUser = await axios({            
+            method: 'post',
+            url: 'http://localhost:3010/account',
+            timeout: 2000,
+            data:{
+                _id: user,
+                pass: password
+            }
+        });
+        if (makeUser.status == 200) {
+            alert("success");
         }
-    });
+    } catch (err) {
+        alert("account already exist, change a new one")
+        return;
+    }
+    
 }
 
 
 async function handleLogin(user,pass){
-    const loginUser = await $.ajax({
-        method: 'post',
-        url: 'http://localhost:3000/account/login',
-        "data":{
-            "name": user,
-            "pass": pass,
+        const loginUser = await axios({
+            method: 'get',
+            url: `http://localhost:3010/account/${user}`
+        });
+        if (loginUser.data == null) {
+            alert("no username exists or incorrect password, please check again");
+            return;
         }
-    })
+        if (loginUser.status == 200) {
+            if (loginUser.data.pass == pass) {
+                alert("login success");
+                return;
+            } else {
+                alert("no username exists or incorrect password, please check again");
+                return;
+            }
+        }
+
 }
