@@ -99,7 +99,7 @@
                                     <input id = "input" class="input" type="text" placeholder="type in course number to search a class">
                                 </p>
                                 <p class="control">
-                                    <a class="button is-info" href="./cardPage.html">
+                                    <a class="button is-info" href="javascript: void(0);" id="search">
                                         Search
                                     </a>
                                 </p>
@@ -124,15 +124,18 @@
         // console.log(courseData[1].subject + courseData[1].courseNum);
         // courseSearch[0] = courseData[1].subject + courseData[1].courseNum;
         // console.log(courseSearch[0]);
-        
-         for (let i = 0; i <= 9007; i++) {
+        var length = Object.values(courseData).length;
+         for (let i = 0; i < length; i++) {
              if(courseData[i].subject !=undefined){
                  courseSearch[i] = courseData[i].subject.toString() + courseData[i].courseNum.toString();
              }
              console.log(courseSearch[i]);
          }
         autocomplete(document.getElementById("input"), courseSearch);
-        
+        document.getElementById('search').addEventListener('click', function () {
+           var searchKey = document.getElementById('input').value.trim();
+           location.href = 'cardPage.html?key='+encodeURIComponent(searchKey);
+        });
     </script>
 </body>
 
