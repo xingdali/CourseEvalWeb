@@ -116,7 +116,7 @@ async function renderCoursePage (id) {
                     for (var i = 0; i < arrcookie.length; i++) {
                         key = arrcookie[i].split('=');
                         console.log(key[0]);
-                        if (key[0] == ' user') {
+                        if (key[0] == 'user') {
                             isLogin = true;
                             break;
                         }
