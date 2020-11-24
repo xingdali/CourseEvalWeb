@@ -11,3 +11,6 @@ app.get("/", function(req, res){
 app.listen(port, function(){
     console.log("app running");
 })
+
+const cors = require('cors');
+app.use(cors());

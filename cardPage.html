@@ -41,11 +41,6 @@
                                 <p class="control" id="back">
                                     
                                 </p>
-                                <input class="input" type="text" id="searchInput" placeholder="Search a class here">
-                                <p class="control">
-                                    <a class="button is-white is-outlined" href="javascript:void(0);" id="search">
-                                        Search
-                                    </a>
                                 </p>
                             </span>
                             <div class="navbar-end">
@@ -55,6 +50,14 @@
                                             <i class="fa fa-home"></i>
                                         </span>
                                         <span>Home</span>
+                                    </a>
+                                </span>
+                                <span class="navbar-item">
+                                    <a class="button is-white is-outlined" onclick="generateAnAnimal()">
+                                        <span class="icon">
+                                            <i class="fa fa-superpowers"></i>
+                                        </span>
+                                        <span>Generate</span>
                                     </a>
                                 </span>
                                 <span class="navbar-item">
@@ -110,8 +113,8 @@
             var key='';
             for (var i = 0; i < arrcookie.length; i++) {
                 key = arrcookie[i].split('=');
-                console.log(key[0] == ' user');
-                if (key[0] == ' user') {
+                console.log(key[0] == 'user');
+                if (key[0] == 'user') {
                     isLogin = true;
                     break;
                 }

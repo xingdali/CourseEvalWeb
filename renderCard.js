@@ -116,7 +116,7 @@ async function renderCoursePage (id) {
                     for (var i = 0; i < arrcookie.length; i++) {
                         key = arrcookie[i].split('=');
                         console.log(key[0]);
-                        if (key[0] == ' user') {
+                        if (key[0] == 'user') {
                             isLogin = true;
                             break;
                         }
@@ -218,29 +218,16 @@ let generateTextCard = function(id) {
 } 
 
 async function generateAnAnimal() {
-  // const options = await axios({
-  //   method: 'GET',
-  //   url: 'https://mlemapi.p.rapidapi.com/randommlem',
-  //   headers: {
-  //     'x-rapidapi-key': 'a37d655385msh3516d473b72f82ep109fdejsn4309fd548dd7',
-  //     'x-rapidapi-host': 'mlemapi.p.rapidapi.com'
-  //   }
-  // });
-  // console.log(options.data);
-  const options = {
+  const options = await axios({
     method: 'get',
     url: 'https://mlemapi.p.rapidapi.com/randommlem',
     headers: {
       'x-rapidapi-key': 'a37d655385msh3516d473b72f82ep109fdejsn4309fd548dd7',
       'x-rapidapi-host': 'mlemapi.p.rapidapi.com'
     }
-  };
-  
-  axios.request(options).then(function (response) {
-    console.log(response.data);
-  }).catch(function (error) {
-    console.error(error);
   });
+  window.open(options.data.url);
+
 }
 
 function filterInt(value) {

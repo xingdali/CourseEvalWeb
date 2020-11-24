@@ -24,7 +24,7 @@ async function handleSignup(user,password){
     try {
         const makeUser = await axios({            
             method: 'post',
-            url: 'hhttps://course-eval-web.herokuapp.com/account',
+            url: 'https://course-eval-web.herokuapp.com/account',
             timeout: 5000,
             data:{
                 _id: user,
@@ -35,7 +35,7 @@ async function handleSignup(user,password){
             alert("success, please login:)");
         }
     } catch (err) {
-        alert("account already exist, change a new one")
+        alert("Timeout or account already exist, try again or change a new one")
         return;
     }
     
