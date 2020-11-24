@@ -38,7 +38,7 @@ function beginSearch() {
       return ;
     }
   }
-  alert('没有找到');
+  alert('cannot find');
 }
 
 function getParameterByName(name, url = window.location.href) {
@@ -216,6 +216,32 @@ let generateTextCard = function(id) {
           </article>`;
   cardPosition.innerHTML = card
 } 
+
+async function generateAnAnimal() {
+  // const options = await axios({
+  //   method: 'GET',
+  //   url: 'https://mlemapi.p.rapidapi.com/randommlem',
+  //   headers: {
+  //     'x-rapidapi-key': 'a37d655385msh3516d473b72f82ep109fdejsn4309fd548dd7',
+  //     'x-rapidapi-host': 'mlemapi.p.rapidapi.com'
+  //   }
+  // });
+  // console.log(options.data);
+  const options = {
+    method: 'get',
+    url: 'https://mlemapi.p.rapidapi.com/randommlem',
+    headers: {
+      'x-rapidapi-key': 'a37d655385msh3516d473b72f82ep109fdejsn4309fd548dd7',
+      'x-rapidapi-host': 'mlemapi.p.rapidapi.com'
+    }
+  };
+  
+  axios.request(options).then(function (response) {
+    console.log(response.data);
+  }).catch(function (error) {
+    console.error(error);
+  });
+}
 
 function filterInt(value) {
   if (/^[-+]?(\d+|Infinity)$/.test(value)) {

@@ -24,8 +24,8 @@ async function handleSignup(user,password){
     try {
         const makeUser = await axios({            
             method: 'post',
-            url: 'http://localhost:3010/account',
-            timeout: 2000,
+            url: 'hhttps://course-eval-web.herokuapp.com/account',
+            timeout: 5000,
             data:{
                 _id: user,
                 pass: password
@@ -45,7 +45,7 @@ async function handleSignup(user,password){
 async function handleLogin(user,pass){
         const loginUser = await axios({
             method: 'get',
-            url: `http://localhost:3010/account/${user}`
+            url: `https://course-eval-web.herokuapp.com/account/${user}`
         });
         if (loginUser.data == null) {
             alert("no username exists or incorrect password, please check again");
