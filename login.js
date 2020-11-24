@@ -24,7 +24,7 @@ async function handleSignup(user,password){
     try {
         const makeUser = await axios({            
             method: 'post',
-            url: 'hhttps://course-eval-web.herokuapp.com/account',
+            url: 'https://course-eval-web.herokuapp.com/account',
             timeout: 5000,
             data:{
                 _id: user,
