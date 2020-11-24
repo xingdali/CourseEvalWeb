@@ -4,7 +4,7 @@
   "description": "Hi all, this is our COMP 426 group project:)",
   "main": "data.js",
   "scripts": {
-    "start": "nodemon ./backend/comment.js"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
